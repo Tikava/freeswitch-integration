@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package speechkit.tts.v3;
+
+import "yandex/cloud/ai/tts/v3/tts.proto";
+
+
+// A set of methods for voice synthesis.
+service Synthesizer {
+    // Synthesizing text into speech.
+    rpc UtteranceSynthesis (UtteranceSynthesisRequest) returns (stream UtteranceSynthesisResponse) {
+        option (google.api.http) = {post: "/tts/v3/utteranceSynthesis" body: "*"};
+    }
+    // Bidirectional streaming RPC for real-time synthesis.
+    rpc StreamSynthesis(stream StreamSynthesisRequest) returns (stream StreamSynthesisResponse) {}
+}
