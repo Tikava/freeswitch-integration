@@ -1,0 +1,11 @@
+<extension name="audio_stream_test">
+  <condition field="destination_number" expression="^9000$">
+
+    <!-- Лог (удобно для дебага) -->
+    <action application="log" data="INFO Stream test dialed"/>
+
+    <!-- Старт скрипта -->
+    <action application="lua" data="start_stream.lua"/>
+
+  </condition>
+</extension>
